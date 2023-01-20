@@ -11,15 +11,12 @@ app = Flask(__name__)
 
 @app.route('/git_update', methods=['POST'])
 def git_update():
-        if request.method == 'POST':
             repo = git.Repo('./pythonanywhere_profile')
             origin = repo.remotes.origin
             repo.create_head('main', 
         origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
             origin.pull()
             return '', 200
-        else:
-            return '', 400
 
 @app.route("/")
 def index_page():
