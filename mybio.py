@@ -26,4 +26,4 @@ def index_page():
     return render_template('resume.html')
 #----START OF SCRIPT
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=80)
