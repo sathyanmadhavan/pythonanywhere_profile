@@ -4,12 +4,16 @@ Habit: Develop -> test locally -> commit -> push to remote -> deploy to prod -> 
 
 """
 
-from flask import flask, render_template
-app = flask(__name__)
-@app.route("/")
-def index_page():
-    "The search page"
-    return render_template('templates/resume.html')
-#----START OF SCRIPT
-if __name__=='__main__':
-    app.run(host='0.0.0.0',port=6464)
+from flask import Flask, request
+import git
+app = Flask(__name__)
+@app.route('/update_server', methods=['POST'])
+    def webhook():
+        if request.method == 'POST':
+            repo = git.Repo('pythonanywhere_profile/mybio.py')
+            origin = repo.remotes.origin
+origin.pull()
+
+return 'Updated PythonAnywhere successfully', 200
+    else:
+            return 'Wrong event type', 400
