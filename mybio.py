@@ -6,14 +6,14 @@ Habit: Develop -> test locally -> commit -> push to remote -> deploy to prod -> 
 
 from flask import Flask, render_template,request
 from flask.wrappers import Response
-from github import Github
+import git
 
 app = Flask(__name__)
 
 
 @app.route('/git_update', methods=['POST'])
 def git_update():
-    repo = git.Repo('./orbe')
+    repo = git.Repo('./pythonanywhere_profile')
     origin = repo.remotes.origin
     repo.create_head('main',
                      origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
