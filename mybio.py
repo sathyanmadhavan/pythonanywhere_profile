@@ -4,12 +4,26 @@ Habit: Develop -> test locally -> commit -> push to remote -> deploy to prod -> 
 
 """
 
-from flask import flask, render_template
+from flask import flask, render_template,request
+import git
 app = flask(__name__)
+
+@app.route('/git_update', methods=['POST'])
+def git_update():
+    if request.method == 'POST':
+        repo = git.Repo('./pythonanywhere_profile')
+        origin = repo.remotes.origin
+        repo.create_head('main', 
+        origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+        origin.pull()
+        return '', 200
+    else:
+        return '', 400
+
 @app.route("/")
 def index_page():
     "The search page"
-    return render_template('templates/resume.html')
+    return render_template('resume.html')
 #----START OF SCRIPT
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=6464)
