@@ -17,7 +17,7 @@ def webhook():
     g = Github(data['token'])
     # Get the repository from the payload
     repository = g.get_repo(data['pythonanywhere_profile']['sathyanmadhavan'])
-    url = 'https://sathyanmadhavan.pythonanywhere.com/webhook'
+    url = 'https://www.pythonanywhere.com/webhook'
    
     # Do something with the commit object
     # ...
