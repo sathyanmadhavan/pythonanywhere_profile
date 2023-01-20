@@ -23,5 +23,3 @@ def index_page():
     "The search page"
     return render_template('resume.html')
 #----START OF SCRIPT
-if __name__=='__main__':
-   app.run(host = 'localhost', port = 8088, debug = True)
