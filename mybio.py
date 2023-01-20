@@ -14,7 +14,7 @@ def git_update():
             repo = git.Repo('./pythonanywhere_profile')
             origin = repo.remotes.origin
             repo.create_head('main', 
-        origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
+            origin.refs.main).set_tracking_branch(origin.refs.main).checkout()
             origin.pull()
             return '', 200
 
