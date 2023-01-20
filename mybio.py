@@ -4,12 +4,19 @@ Habit: Develop -> test locally -> commit -> push to remote -> deploy to prod -> 
 
 """
 
-from flask import flask, render_template
-app = flask(__name__)
-@app.route("/")
-def index_page():
-    "The search page"
-    return render_template('templates/resume.html')
-#----START OF SCRIPT
-if __name__=='__main__':
-    app.run(host='0.0.0.0',port=6464)
+from flask import Flask, request
+import git
+
+app = Flask(__name__)
+
+@app.route('/webhook', methods=['POST'])
+def webhook():
+        if request.method == 'POST':
+            repo = git.Repo('./pythonanywhere_profile')
+            origin = repo.remotes.origin
+            repo.create_head('main', 
+        origin.refs.master).set_tracking_branch(origin.refs.main).checkout()
+            origin.pull()
+            return '', 200
+        else:
+            return '', 400
