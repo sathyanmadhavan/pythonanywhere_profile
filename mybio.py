@@ -5,6 +5,7 @@ Habit: Develop -> test locally -> commit -> push to remote -> deploy to prod -> 
 """
 
 from flask import Flask, render_template,request
+from flask.wrappers import Response
 import git
 
 app = Flask(__name__)
@@ -20,6 +21,5 @@ def git_update():
 
 @app.route("/")
 def index_page():
-    "The search page"
     return render_template('resume.html')
 #----START OF SCRIPT
