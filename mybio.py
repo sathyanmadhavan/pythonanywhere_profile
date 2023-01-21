@@ -4,14 +4,13 @@ Habit: Develop -> test locally -> commit -> push to remote -> deploy to prod -> 
 
 """
 
-from flask import Flask, render_template,request
-from flask.wrappers import Response
+from flask import Flask, render_template
 import git
 
 app = Flask(__name__)
 
 
-@app.route('/update', methods=['POST'])
+@app.route('/page_update', methods=['POST'])
 def update():
     repo = git.Repo('./pythonanywhere_profile')
     origin = repo.remotes.origin
@@ -26,4 +25,4 @@ def index_page():
     return render_template('resume.html')
 #----START OF SCRIPT
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=6464)
