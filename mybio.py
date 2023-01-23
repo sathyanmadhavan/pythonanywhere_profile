@@ -1,8 +1,3 @@
-"""
-Flask app to host my simple bio
-Habit: Develop -> test locally -> commit -> push to remote -> deploy to prod -> test on prod === 30 minutes
-
-"""
 
 from flask import Flask, render_template,request
 import git
