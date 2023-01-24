@@ -101,7 +101,7 @@ h6 {
 
 #header .profile h1 a,
 #header .profile h1 a:hover {
-  color: #fff;
+  color: rgb(12, 11, 11);
   text-decoration: none;
 }
 
@@ -109,7 +109,7 @@ h6 {
   font-size: 18px;
   display: inline-block;
   background: #212431;
-  color: #fff;
+  color: rgb(222, 6, 6);
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -1103,9 +1103,3 @@ section {
   }
 }
 
-.social-links {
-  display: flex;
-}
-.social-links a {
-  margin-right: 1rem;
-}
