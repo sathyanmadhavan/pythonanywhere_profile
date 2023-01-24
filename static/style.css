@@ -122,7 +122,7 @@ h6 {
 
 #header .profile .social-links a:hover {
   background: #149ddd;
-  color: #fff;
+  color: rgb(233, 10, 10);
   text-decoration: none;
 }
 
@@ -1101,4 +1101,11 @@ section {
     width: auto;
     padding-right: 20px 15px;
   }
+}
+
+.social-links {
+  display: flex;
+}
+.social-links a {
+  margin-right: 1rem;
 }
